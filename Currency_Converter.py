@@ -12,9 +12,14 @@ GNU V2 Public licencse applys
 
 class Currency():
     def __init__(self,Amount,Currency_Have ,CurrencyWant):
-        pass
+
+        self.Amount = float(Amount)
+
     def __str__(self):
         pass
+    def __repr__(self):
+        pass
+
 
 
 

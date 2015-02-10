@@ -9,16 +9,26 @@ GNU V2 Public licencse applys
 
 """
 
+import string
 
 class Currency():
-    def __init__(self,Amount,Currency_Have ,CurrencyWant):
+    def __init__(self,Amount,Currency_Have ,Currency_Want):
 
-        self.Amount = float(Amount)
+        self.Amount = 3 #float(Amount)
+        self.Currency_Have = USD# Currency_Have
+        self.Currency_Want = EUR#Currency_Want
 
+
+    def request(self):
+        urlstart = "www.google.com/finance/converter?a=1&from="
+        urlmid = "&to="
+        url = "{}{}{}{}".format(urlstart,self.Currency_Have,urlmid,self.Currency_Want)
+        print(url)
     def __str__(self):
         pass
     def __repr__(self):
         pass
+
 
 
 

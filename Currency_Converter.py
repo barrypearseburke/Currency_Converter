@@ -22,18 +22,20 @@ class Currency():
 
 
     def request(self):
-        urlstart = "www.google.com/finance/converter?a="
+        urlstart = "http://www.google.com/finance/converter?a="
         urlmid = "&from="
         urlend = "&to="
         url = "{}{}{}{}{}{}".format(urlstart,self.Amount,urlmid,self.Currency_Have,urlend,self.Currency_Want)
-        print(url)
+        #alternative
+        #url = urlstart + self.Amount + urlmid + self.Currency_Have + urlend,self.Currency_Want
+        #this downloads the the html source and put its all into a string called HTML_SOURCE
+        web = urllib.request.urlopen(url)
+        HTML_SOURCE = str(web.read())
+        #TODO find the section of the html source where the value is given
     def __str__(self):
         pass
     def __repr__(self):
         pass
+myCur = Currency(100,"USD","EUR")
 
-Amount = 20
-Have = "EUR"
-WANT ="AUS"
-Myclass = Currency(Amount, Have,WANT)
 

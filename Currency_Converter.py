@@ -10,26 +10,30 @@ GNU V2 Public licencse applys
 """
 
 import string
+import urllib.request
 
 class Currency():
     def __init__(self,Amount,Currency_Have ,Currency_Want):
 
-        self.Amount = 3 #float(Amount)
-        self.Currency_Have = USD# Currency_Have
-        self.Currency_Want = EUR#Currency_Want
+        self.Amount = Amount #float(Amount)
+        self.Currency_Have = Currency_Have# Currency_Have
+        self.Currency_Want = Currency_Want#Currency_Want
+        Currency.request(self)
 
 
     def request(self):
-        urlstart = "www.google.com/finance/converter?a=1&from="
-        urlmid = "&to="
-        url = "{}{}{}{}".format(urlstart,self.Currency_Have,urlmid,self.Currency_Want)
+        urlstart = "www.google.com/finance/converter?a="
+        urlmid = "&from="
+        urlend = "&to="
+        url = "{}{}{}{}{}{}".format(urlstart,self.Amount,urlmid,self.Currency_Have,urlend,self.Currency_Want)
         print(url)
     def __str__(self):
         pass
     def __repr__(self):
         pass
 
-
-
-
+Amount = 20
+Have = "EUR"
+WANT ="AUS"
+Myclass = Currency(Amount, Have,WANT)
 
